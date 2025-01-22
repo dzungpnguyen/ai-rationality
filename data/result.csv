@@ -1,0 +1,3 @@
+true_evaluation,n_unacceptable,n_acceptable,n_good,n_very_good
+unacceptable,100,0,0,0
+acceptable,0,33,67,0
