@@ -1,6 +1,6 @@
 # ai-rationality
 
-This project studies the rationality of AI by analyze how it classifies car acceptability based on certain conditions.
+This project studies the rationality of AI by analyzing how it classifies car acceptability based on certain conditions.
 
 ## Dataset description:
 
@@ -16,22 +16,22 @@ The dataset contains 1728 rows with 7 columns with descriptions as below:
 - safety: Estimated safety; contains 3 unique values (low, med, high)
 - decision: Car acceptability; contains 4 unique values (unacc, acc, good, vgood)
 
-The class distribution is as below:
+The class distribution is as follows:
 
 - unacc: 1210 instances (70.02%)
 - acc: 384 instances (22.22%)
 - good: 69 instances (3.99%)
 - vgood: 65 instances (3.76%)
 
-## Method
+## Methodology
 
-As the classes "unacc" and "acc" take about 92% of the dataset, we choose these 2 classes to test our AI agents. The goal is to find 1 representative car (meaning 1 median-like row) for each class, then ask 100 agents their decisions on each car and compare their answers to the decisions given by the dataset.
+Since the "unacc" and "acc" classes account for about 92% of the dataset, these 2 categories are selected for evaluating the performance of our AI agents. The goal is to identify one representative car (using the most median-like row) for each class, abd then ask decisions from 100 agents for each car. The responses provided by these agents will be compared to the actual decisions in the dataset.
 
 ### 1. Find median-like rows
 
-After performing data cleaning and feature engineering to transform variables of type object to type integer, we calculate the median values of every column in each class. The most representative row is the one that has the minimum distance to the median values. Detailed code in `data_processing.ipynb`.
+After performing data cleaning and feature engineering to transform categorical variables into numerical representations, we calculate the median value for each column within each class. The most representative row is determined by selecting the row with the minimum distance to the median values of the class. Detailed process in `data_processing.ipynb`.
 
-Here are 4 median-like rows corresponding to 4 classes:
+Here are four median-like rows corresponding to each class:
 
 **Class unacc**
 - buying_price:       high
@@ -71,7 +71,7 @@ Here are 4 median-like rows corresponding to 4 classes:
 
 ### 2. Make API calls
 
-The model used for this task is gpt-4o-mini from OpenAI. The prompt combines 2 messages: the system message specifies the context and the user message details the car conditions and requires a evaluration from AI agents. The prompt is given as below:
+The model used for this task is GPT-4.0 Mini from OpenAI. The prompt combines two messages: the system message specifies the context, while the user message details the car conditions and requests an evaluation from the AI agents. The prompt is structured as below:
 
 System message: "You are an AI agent tasked with evaluating cars based on specific conditions. You will choose one of the following evaluations: unacceptable, acceptable, good, very good. You must provide only one evaluation, without any additional explanation."
 
