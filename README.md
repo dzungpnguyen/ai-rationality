@@ -95,10 +95,12 @@ Your response should be one of the 4 above options, without any other words."
 
 ## Result
 
-For the "unacceptable" car, the AI agents consistently chose "unacceptable," giving a 100% correct classification rate. However, for the "acceptable" case, only 33% of the agents correctly classified it as "acceptable," while 67% classified it as "good."
+For the "unacceptable" car, the AI agents consistently chose "unacceptable" (for both cases with or without default information), giving a 100% correct classification rate. However, for the "acceptable" case without default option, only 33% of the agents correctly classified it as "acceptable," while 67% classified it as "good". After adding "acceptable" as default evaluation, the result becomes 21% classified as "acceptable", and 79% classified as "good".
 
 ![](img/result_unacc.png)
+![](img/result_unacc_with_default.png)
 ![](img/result_acc.png)
+![](img/result_acc_with_default.png)
 
 ## Interpretation
 
